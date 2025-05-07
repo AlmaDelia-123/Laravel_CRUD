@@ -7,16 +7,8 @@ Route::get('/', function () {
 });
 Route::get('/inicio',[Catalogo::class,'inicio'])->name('home');
 Route::get('/listado',[Catalogo::class,'listado'])->name('list');
-Route::get('/agregar',[Catalogo::class,'agregar'])->name('agre');
-Route::get('/editar',[Catalogo::class,'editar'])->name('edit');
-// Agregar nueva película (formulario + envío)
-
-Route::get('/agregar', [Catalogo::class, 'agregar'])->name('catalogo.agregar');
-Route::post('/guardar', [Catalogo::class, 'guardar'])->name('catalogo.guardar');
-
-// Editar película
-Route::get('/editar/{id}', [Catalogo::class, 'editar'])->name('catalogo.editar');
-Route::put('/actualizar/{id}', [Catalogo::class, 'actualizar'])->name('catalogo.actualizar');
-
-// Eliminar película
-Route::delete('/eliminar/{id}', [Catalogo::class, 'eliminar'])->name('catalogo.eliminar');
+Route::get('/agregar',[Catalogo::class,'agregar'])->name('agre'); 
+Route::get('/editar/{id}',[Catalogo::class,'editar'])->name('edit');
+Route::put('/edicion/{pelicula}',[Catalogo::class,'actualizar'])->name('actualizar');
+Route::post('/insertar',[Catalogo::class,'insertar_pelicula'])->name('insertar');
+Route::get('/eliminar/{id}', [Catalogo::class, 'eliminar_pelicula'])->name('eliminar');

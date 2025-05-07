@@ -14,6 +14,7 @@
                     <th scope="col">Genero</th>
                     <th scope="col">Director</th>
                     <th scope="col">Fecha de estreno</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,19 +27,17 @@
                     <td>{{ $pelicula->director }}</td>
                     <td>{{ $pelicula->fecha_estreno }}</td>
                     <td>
-                        <a href="{{ route('catalogo.editar', $pelicula->id) }}" class="btn btn-warning btn-sm">Editar</a>
-
-                        <form action="{{ route('catalogo.eliminar', $pelicula->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar esta película?')">Eliminar</button>
-                        </form>
+                        <a href="{{ route('edit', $pelicula->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{{ route('eliminar', $pelicula->id) }}" class="btn btn-danger btn-sm"
+                            onclick="return confirm('¿Estás seguro de que deseas eliminar esta película?')">
+                            Eliminar
+                        </a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-        <a href="{{ route('catalogo.agregar') }}" class="btn btn-success btn-sm">Agregar nueva película</a>
+        <a href="{{ route('agre') }}" class="btn btn-success btn-sm">Agregar nueva película</a>
     </div>
 </div>
 @endsection

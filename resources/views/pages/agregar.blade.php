@@ -1,37 +1,37 @@
 @extends('plantilla')
+
 @section('contenido')
-<div class="row justify-content-center mt-5">
-    <div class="col-10">
-        <h1 class="text-center">Agregar nueva película</h1>
-        <form action="{{ route('catalogo.guardar') }}" method="POST">
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <form method="POST" action="{{ route('insertar') }}" class="col-md-5">
             @csrf
 
             <div class="form-group mb-3">
-                <label>Título</label>
-                <input type="text" name="titulo" class="form-control" required>
+                <label for="titulo">Título</label>
+                <input name="titulo" id="titulo" class="form-control" type="text" required>
             </div>
 
             <div class="form-group mb-3">
-                <label>Descripción</label>
-                <textarea name="descripcion" class="form-control" required></textarea>
+                <label for="descripcion">Descripción</label>
+                <input name="descripcion" id="descripcion" class="form-control" type="text">
             </div>
 
             <div class="form-group mb-3">
-                <label>Género</label>
-                <input type="text" name="genero" class="form-control" required>
+                <label for="director">Director</label>
+                <input name="director" id="director" class="form-control" type="text">
             </div>
 
             <div class="form-group mb-3">
-                <label>Director</label>
-                <input type="text" name="director" class="form-control" required>
+                <label for="genero">Género</label>
+                <input name="genero" id="genero" class="form-control" type="text">
             </div>
 
             <div class="form-group mb-3">
-                <label>Fecha de estreno</label>
-                <input type="date" name="fecha_estreno" class="form-control" required>
+                <label for="fecha_estreno">Fecha de estreno</label>
+                <input type="date" name="fecha_estreno" id="fecha_estreno" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-success">Guardar película</button>
+            <button type="submit" class="btn btn-primary w-100 mb-3">Añadir</button>
         </form>
     </div>
 </div>
