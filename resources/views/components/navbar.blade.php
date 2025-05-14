@@ -5,7 +5,6 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-3">
                 <li class="nav-item">
@@ -18,5 +17,16 @@
                 </li>
             </ul>
         </div>
+        @auth
+        <div class="d-flex">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn btn-outline-danger">
+                    <i class="bi bi-box-arrow-right"></i> cerrar sesión
+                </button>
+            </form>
+        </div>
+        @endauth
+
     </div>
 </nav>

@@ -34,8 +34,7 @@
                     <p class="mt-2">Spy Family</p>
                 </div>
                 <div class="col-md-3">
-                    <img src="{{ asset('images/demon_slayer.png') }}" alt="Demon Slayer"
-                        class="img-fluid rounded">
+                    <img src="{{ asset('images/demon_slayer.png') }}" alt="Demon Slayer" class="img-fluid rounded">
                     <p class="mt-2">Demon Slayer</p>
                 </div>
                 <div class="col-md-3">
@@ -44,7 +43,6 @@
                     <p class="mt-2">Si la vida te da mandarinas</p>
                 </div>
             </div>
-            <br>
         </div>
     </div>
 </div>
