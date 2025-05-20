@@ -12,7 +12,7 @@ class RegisterController extends Controller
 {
     public function showRegisterForm()
     {
-        if (Auth::check()) {
+        if (Auth::check()) { //verifica si hay una sesion iniciada
         return redirect()->route('home');
     }
         return view('register',["titulo"=>"Registro"]);
@@ -31,13 +31,13 @@ class RegisterController extends Controller
 ],
 ],[
     "nombre.required"=>"El campo Nombre es obligatorio",
-    "nombre.regex"=>"El campo Nombre solo puede contener letras y espacios",
+    "nombre.regex"=>"El campo Nombre solo puede contener letras ",
 
     "apellido_paterno.required"=>"El campo Apellido Paterno es obligatorio",
-    "apellido_paterno.regex"=>"El campo Apellido Paterno solo puede contener letras y espacios",
+    "apellido_paterno.regex"=>"El campo Apellido Paterno solo puede contener letras ",
 
     "apellido_materno.required"=>"El campo Apellido Materno es obligatorio",
-    "apellido_materno.regex"=>"El campo Apellido Materno solo puede contener letras y espacios",
+    "apellido_materno.regex"=>"El campo Apellido Materno solo puede contener letras ",
 
     "usuario.required"=>"El campo Usuario es obligatorio",
     "usuario.regex"=>"El campo Usuario solo puede contener letras, números y guiones bajos",
@@ -46,7 +46,6 @@ class RegisterController extends Controller
     "password.confirmed"=>"Debes confirmar el password",
     "password.regex"=>"La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial",
 ]);
-
 
     $persona = new Persona();
     $persona->nombre = $request->nombre;

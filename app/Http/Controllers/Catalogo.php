@@ -28,6 +28,29 @@ class Catalogo extends Controller
         ]);
     }
     public function actualizar(Request $request, Catalog $pelicula) {
+        $request->validate([
+            'titulo' => 'required|string|max:255|regex:/^[\pL\s\.\,\-]+$/u',
+            'descripcion' => 'required|string|max:500|regex:/^[\pL\s\.\,\-]+$/u',
+            'genero' => 'required|string|max:100|regex:/^[\pL\s]+$/u',
+            'director' => 'required|string|max:100|regex:/^[\pL\s]+$/u',
+            'fecha_estreno' => 'required|date',
+        ],[
+            'titulo.required' => 'El campo Título es obligatorio',
+            'titulo.regex' => 'El campo Título solo puede contener letras, espacios y algunos signos de puntuación',
+
+            'descripcion.required' => 'El campo Descripción es obligatorio',
+            'descripcion.regex' => 'El campo Descripción solo puede contener letras, espacios y algunos signos de puntuación',
+
+            'genero.required' => 'El campo Género es obligatorio',
+            'genero.regex' => 'El campo Género solo puede contener letras y espacios',
+
+            'director.required' => 'El campo Director es obligatorio',
+            'director.regex' => 'El campo Director solo puede contener letras y espacios',
+
+            'fecha_estreno.required' => 'El campo Fecha de estreno es obligatorio',
+            'fecha_estreno.date' => 'El campo Fecha de estreno debe tener un formato de fecha válido',
+        ]);
+
         $pelicula->titulo=$request->titulo;
         $pelicula->descripcion=$request->descripcion;
         $pelicula->director=$request->director;
@@ -36,8 +59,31 @@ class Catalogo extends Controller
         $pelicula->save();
 
         return redirect()->route('list');
+        
     }
     public function insertar_pelicula(Request $request){
+        $request->validate([
+            'titulo' => 'required|string|max:255|regex:/^[\pL\s\.\,\-]+$/u',
+            'descripcion' => 'required|string|max:500|regex:/^[\pL\s\.\,\-]+$/u',
+            'genero' => 'required|string|max:100|regex:/^[\pL\s\.\,\-]+$/u',
+            'director' => 'required|string|max:100|regex:/^[\pL\s\.\,\-]+$/u',
+            'fecha_estreno' => 'required|date',
+        ],[
+            'titulo.required' => 'El campo Título es obligatorio',
+            'titulo.regex' => 'El campo Título solo puede contener letras, espacios y algunos signos de puntuación',
+
+            'descripcion.required' => 'El campo Descripción es obligatorio',
+            'descripcion.regex' => 'El campo Descripción solo puede contener letras, espacios y algunos signos de puntuación',
+
+            'genero.required' => 'El campo Género es obligatorio',
+            'genero.regex' => 'El campo Género solo puede contener letras y espacios',
+
+            'director.required' => 'El campo Director es obligatorio',
+            'director.regex' => 'El campo Director solo puede contener letras y espacios',
+
+            'fecha_estreno.required' => 'El campo Fecha de estreno es obligatorio',
+            'fecha_estreno.date' => 'El campo Fecha de estreno debe tener un formato de fecha válido',
+        ]);
         $pelicula = new Catalog();
         $pelicula->titulo = $request->titulo;
         $pelicula->descripcion = $request->descripcion;

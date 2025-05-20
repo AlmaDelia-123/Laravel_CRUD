@@ -13,7 +13,7 @@
                 </div>
                 <div class="form-group mb-4">
                     <label>Contraseña</label>
-                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="password" name="password" placeholder="Contraseña" >
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Ingresar</button><br>
             </form>
@@ -21,8 +21,14 @@
                 <p>¿Primera vez aquí? <a href="/registro" class="text-danger fw-bold">Regístrate ahora</a></p>
             </div>
 
-            @if($errors->any())
-            <p class="error-text">{{ $errors->first() }}</p>
+           @if($errors->any())
+            <div class="alert alert-danger rounder-3">
+                <ul class="error-text">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
         </div>
     </div>
